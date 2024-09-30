@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Website</title>
+    <style>
+        /* Reset some default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Flexbox Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: white;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;  /* Fix the navbar */
+            top: 0;
+            width: 100%;
+            z-index: 1000;  /* Ensure it stays on top of other content */
+            border-bottom: 3px solid black;
+        }
+
+        /* Smooth scrolling behavior */
+        html {
+            scroll-behavior: smooth; /* Enables smooth scrolling */
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+       
+
+        /* Full-width, Full-height sections */
+        .section {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .gray {
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            gap: 2%;
+        }
+
+        .black {
+            background-color: #211c1b;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .red {
+            background-color: #6e0814;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* White boxes in the gray section */
+        .box {
+            background-color: white;
+            flex-basis: 48%;
+            height: 90%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .boxes {
+            background-color: white;
+            flex-basis: 48%;
+            height: 90%;
+        }
+
+        /* Header for the Features section */
+        .features-header {
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Boxes in the black section */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            width: 70%;  /* Cover 70% of the page width */
+        }
+
+        .dark-box {
+            background-color: #6e0814;   /* Dark background for contrast */
+            color: white;             /* Set the font color to white */
+            width: 30%;               /* Each box covers ~30% of the container */
+            height: 70vh;             /* Each box covers 70% of the height */
+            position: relative;
+            padding: 20px;            /* Internal margin inside the box */
+            box-sizing: border-box;   /* Ensure padding doesn't affect the width */
+            border-left: 10px solid white; /* Add a white vertical line on the left side */
+        }
+
+        /* Header for the Explore section */
+        .explore-header {
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        /* Boxes for the Explore section */
+        .explore-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            width: 60%;  /* Cover 60% of the page width */
+        }
+
+        .explore-box {
+            background-color: white;
+            color: black;
+            width: 48%;               /* Each box covers ~48% of the container */
+            height: 50vh;             /* Each box covers 50% of the height */
+            border-radius: 8px;
+            padding: 20px;            /* Internal margin inside the box */
+            box-sizing: border-box;   /* Ensure padding doesn't affect the width */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* For smaller screens */
+        @media (max-width: 768px) {
+            .gray {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .box {
+                width: 90%;
+                margin-bottom: 20px;
+            }
+
+            .container, .explore-container {
+                flex-direction: column;
+                width: 90%; /* Adjust the width on mobile */
+                gap: 20px;
+            }
+
+            .dark-box, .explore-box {
+                width: 90%;
+                height: auto; /* Adjust height for mobile */
+            }
+
+            .features-header, .explore-header {
+                font-size: 28px; /* Adjust header size for mobile */
+            }
+
+            
+        }
+
+        .gray-box-header {
+            font-size: 10vw;  /* Big Arial header */
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            margin-bottom: 10px;
+            margin-top: 5vw;
+            letter-spacing: .01em;
+        }
+
+        .gray-box-header-line {
+            width: 100%;
+            height: 2px;
+            background-color: black;  /* Black line under the header */
+            margin-bottom: 20px;
+        }
+
+        .gray-box-description {
+            font-size: 2vw;
+            line-height: 1.6;
+            margin: 10px 0;
+            letter-spacing: .01em;
+        }
+
+        .gray-box-content {
+            padding: 20px;  /* Add padding to ensure text doesn't touch the box outline */
+            box-sizing: border-box;
+        }
+
+        .image-container {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .explore-button {
+            
+            display: inline-block;
+            outline: 0;
+            text-align: center;
+            cursor: pointer;
+            padding: 17px 30px;
+            border: 0;
+            color: #fff;
+            font-size: 17.5px;
+            border: 2px solid transparent;
+            border-color: #000;
+            color: #000;
+            background: transparent;
+            font-weight: 800;
+            line-height: 30px;
+            transition: background,color .1s ease-in-out;
+            margin-top: 5vh;
+        }
+
+        .explore-button:hover {
+                background-color: #000;
+                color: #fff;
+        }
+
+        /* Mobile-friendly layout */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            nav a {
+                padding: 10px 0;
+            }
+
+            body {
+                padding-top: 170px; /* Adjust based on the height of the navbar */
+            }
+
+            .gray-box-header {
+            font-size: 20vw;
+        }
+
+        .gray-box-description {
+            font-size: 5vw;
+        }
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#explore">Explore</a>
+    </nav>
+
+    <div class="section gray" id="home">
+        <div class="boxes">
+            <div class="gray-box-content">
+                <h1 class="gray-box-header">TAMIU <span style="color: #6e0814">U</span>MAPS</h1>
+                <div class="gray-box-header-line"></div>
+                <p class="gray-box-description">
+                    AN INTERACTIVE PROJECT TO NAVIGATE OUR CAMPUS
+                </p>
+                <button class="explore-button" >Explore</button>
+            </div>
+        </div>
+        <div class="boxes">
+            <img src="tamiu.svg" alt="Campus Image" class="image-container">
+        </div>
+    </div>
+
+    <div class="section black" id="features">
+        <h1 class="features-header">Features</h1>
+        <div class="container">
+            <div class="dark-box">
+                <h2>Interactive 2D Map</h2>
+                <p>Explore the area with our 
+                    detailed 2D map, featuring 
+                    zoom, pan, and clickable 
+                    points of interest. Find 
+                    the shortest routes and view 
+                    essential details at any zoom level.</p>
+            </div>
+            <div class="dark-box">
+                <h2>Immersive 3D View</h2>
+                <p>Switch to a 3D perspective to 
+                    experience the location from a 
+                    bird’s-eye view. Rotate, tilt, and 
+                    zoom to navigate through the 
+                    terrain and buildings for a more 
+                    immersive exploration.</p>
+            </div>
+            <div class="dark-box">
+                <h2>Seamless Navigation</h2>
+                <p>Easily transition between 2D and 
+                    3D modes with a single click. 
+                    Our map ensures smooth, fast, and 
+                    user-friendly navigation, allowing 
+                    you to focus on discovering 
+                    new paths and areas.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section red" id="explore">
+        <h1 class="explore-header">Explore</h1>
+        <div class="explore-container">
+            <div class="explore-box">
+                <h2>Interactive 2D Map</h2>
+                <a href="map2d.html">
+                    <p>Click here to go to 2D Map</p>
+                </a>
+            </div>
+            <div class="explore-box">
+                <h2>Immersive 3D View</h2>
+                <a href="page2.html">
+                    <p>Click here to go to 3D map</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

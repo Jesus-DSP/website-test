@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Map with Footways Pathfinding</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <style>
+      #map {
+        height: 100vh;
+      }
+      .reset-button,
+      .set-location-button {
+        position: absolute;
+        top: 10px;
+        z-index: 1000;
+        background-color: white;
+        padding: 8px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .reset-button {
+        left: 10px;
+      }
+
+      .set-location-button {
+        left: 130px; /* Adjust as needed to position the button next to the reset button */
+      }
+    </style>
+  </head>
+  <body>
+    <button id="resetBtn" class="reset-button">Reset Pathfinding</button>
+    <button id="setLocationBtn" class="set-location-button">
+      Set Location
+    </button>
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Your JavaScript File -->
+    <script src="script.js"></script>
+  </body>
+</html>
