@@ -178,12 +178,12 @@ document
             map.panTo(userLatLng);
           } else {
             // User is outside the map bounds
-            alert("You're not within map range");
+            alert("You're not within TAMIU map range");
           }
         },
         function (error) {
           // Handle geolocation errors
-          alert("Unable to retrieve your location");
+          alert("Unable to retrieve your location. Please make sure to have updated browser.");
           console.error("Geolocation error:", error);
         }
       );
