@@ -17,6 +17,7 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: "&copy; OpenStreetMap contributors",
 }).addTo(map);
 
+/*
 // Define the coordinates for the square (four corners)
 var latb = [
   [27.57241, -99.43473], // Bottom-left
@@ -68,6 +69,8 @@ var library = L.polygon(latLibrary, {
 library.on("click", function () {
   alert("You've touched the Library");
 });
+
+*/
 
 // Initialize variables
 let startMarker = null;
